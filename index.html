@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script defer src="./alpine.js"></script>
+              <link rel="stylesheet" href="assets/output-dev.css">
+</head>
+<body>
+            <main
+            class="flex-grow overflow-scroll overflow-x-hidden"
+            x-data="{data: '...loading'}"
+            x-init="data = await (await fetch('http://localhost:8787/chess')).text();
+  "
+          >
+                      <div id="content" x-html="data"></div>
+          </main>
+
+          <p style="
+            font-family: 'alpha2';
+            ">ijklmn<br>
+            IJKLMN</p>
+  
+          <script>
+            document.addEventListener('alpine:init', () => {
+              Alpine.store('contentCurrent', 'chess')
+            })
+          </script>
+</body>
+</html>
